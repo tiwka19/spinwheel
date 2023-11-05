@@ -31,12 +31,7 @@ const Questions = () => {
           { fillStyle: '#F5C001', text: '7' },
           { fillStyle: '#F5C001', text: '8' },
         ],
-        // Specify pointer guide properties.
-        pointerGuide: {
-          display: true,
-          strokeStyle: 'red',
-          lineWidth: 3,
-        },
+
         // Specify the animation to use.
         animation: {
           type: 'spinToStop',
