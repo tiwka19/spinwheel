@@ -127,8 +127,6 @@ const Questions = () => {
           <button className="bg-[#4B94F7] py-3 px-5 w-full rounded-full text-lg text-white" onClick={startSpin}>
             Play
           </button>
-
-          <button onClick={resetSpin}>Сброс</button>
         </>
       ) : (
         <div>
