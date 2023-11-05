@@ -1,0 +1,18 @@
+---
+import { Image } from 'astro:assets';
+---
+
+<footer class="bg-white py-5">
+  <div class="container flex justify-between items-center">
+    <Image src={import('../assets/logo-dark.svg')} alt="logo" />
+    <div class="text-[#A1A1A1]">
+      <span id="year"></span> - Technos
+    </div>
+  </div>
+</footer>
+
+<script>
+  const year = document.getElementById('year') as HTMLElement;
+  const currentYear = new Date().getFullYear();
+  year.textContent = currentYear.toString();
+</script>

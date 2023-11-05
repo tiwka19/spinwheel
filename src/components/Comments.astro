@@ -1,0 +1,114 @@
+---
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon';
+
+const comments = [
+  {
+    avatar: 'http://placehold.it/45x45',
+    name: 'Justin',
+    date: '1 day ago',
+    like_count: '12',
+    text: 'Lorem ipsum dolor sit amet consectetur adipiscing elit ultricies venenatis ac feugiat quisque facilisis?',
+  },
+  {
+    avatar: 'http://placehold.it/45x45',
+    name: 'Justin',
+    date: '1 day ago',
+    like_count: '12',
+    text: 'Lorem ipsum dolor sit amet consectetur adipiscing elit ultricies venenatis ac feugiat quisque facilisis?',
+    image: 'https://media.karousell.com/media/photos/products/2022/4/23/iphone_13_pro_max_graphite_128_1650726760_539fb1e3_progressive.jpg',
+  },
+  {
+    avatar: 'http://placehold.it/45x45',
+    name: 'Justin',
+    date: '1 day ago',
+    like_count: '12',
+    text: 'Lorem ipsum dolor sit amet consectetur adipiscing elit ultricies venenatis ac feugiat quisque facilisis?',
+  },
+];
+---
+
+<div class="py-10 container">
+  <h2 class="text-xl font-bold mb-5">Comment:</h2>
+
+  <div class="text-input overflow-hidden flex items-center gap-5 w-full border-2 p-3 rounded-full relative mb-10">
+    <input type="text" class="w-full pl-2 text-lg outline-none" id="text" placeholder="Comment..." />
+    <div class="flex items-center gap-2">
+      <img id="thumbnail" class="thumbnail max-w-[50px] rounded-lg max-h-[50px] hidden" />
+      <label for="file" class="cursor-pointer">
+        <Icon name="fluent:attach-12-regular" class="w-7 h-7" />
+      </label>
+      <button class="send-button pointer-events-none text-gray-500">
+        <Icon name="tabler:send" class="w-7 h-7" />
+      </button>
+    </div>
+
+    <input type="file" id="file" class="hidden file-input" />
+  </div>
+
+  {
+    comments.map((comment) => (
+      <div class="flex items-start gap-5 mb-5">
+        <Image src={comment.avatar} width={45} height={45} class="rounded-full w-[45px] h-[45px] object-cover" alt="avatar" />
+        <div class="bg-[#F5F5F5] w-full rounded-lg py-4 px-3 flex flex-col">
+          <div class="flex justify-between items-center mb-3">
+            <div class="flex gap-3 text-sm">
+              <span class="text-[#485584] font-semibold">{comment.name}</span>
+              <span class="text-[#9E9E9E]">{comment.date}</span>
+            </div>
+            <div class="flex gap-1 text-sm">
+              <Icon name="mdi:heart-outline" class="w-5 h-5 text-[#AFAFAF]" />
+              <span class="text-[#9E9E9E]">{comment.like_count}</span>
+            </div>
+          </div>
+          <p class="text-[#5F5F5F]">{comment.text}</p>
+          {comment.image && <Image src={comment.image} width={300} height={215} class="mt-5 rounded-lg" alt="image" />}
+        </div>
+      </div>
+    ))
+  }
+</div>
+
+<style>
+  .send-button.active {
+    pointer-events: auto;
+    color: #4b94f7;
+  }
+</style>
+
+<script>
+  // Обработчик события для выбора файла
+  document.querySelector('.file-input').addEventListener('change', function () {
+    const fileInput = this as HTMLInputElement;
+    const thumbnail = document.querySelector('#thumbnail') as HTMLImageElement;
+    const textInput = document.querySelector('#text') as HTMLElement;
+
+    if (fileInput.files && fileInput.files[0]) {
+      const reader = new FileReader();
+
+      reader.onload = function (e) {
+        if (e.target && e.target.result) {
+          thumbnail.src = e.target.result.toString(); // Преобразование в строку
+          thumbnail.style.display = 'block';
+        }
+      };
+
+      reader.readAsDataURL(fileInput.files[0]);
+    } else {
+      thumbnail.style.display = 'none';
+      textInput.style.display = 'block';
+    }
+  });
+
+  // Обработчик события для поля ввода текста
+  document.querySelector('#text').addEventListener('input', function () {
+    const textInput = this as HTMLInputElement;
+    const icon = document.querySelector('.send-button');
+
+    if (textInput.value.trim() !== '') {
+      icon.classList.add('active'); // Добавление класса 'icon' если поле не пустое
+    } else {
+      icon.classList.remove('active'); // Удаление класса 'icon' если поле пустое
+    }
+  });
+</script>
