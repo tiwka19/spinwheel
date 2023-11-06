@@ -17,7 +17,7 @@ const Product = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   return (
-    <div className="mb-10">
+    <div className="sm:flex flex-col items-start sm:flex-row sm:items-center w-full lg:w-[500px] order-last lg:order-first gap-5">
       <Swiper
         style={{
           '--swiper-navigation-color': '#fff',
@@ -27,7 +27,7 @@ const Product = () => {
         navigation={false}
         thumbs={{ swiper: thumbsSwiper }}
         modules={[FreeMode, Navigation, Thumbs]}
-        className="mySwiper2">
+        className="mySwiper2 mb-10 sm:mb-0">
         <SwiperSlide>
           <img src="/product/product-1.png" />
         </SwiperSlide>
@@ -48,7 +48,7 @@ const Product = () => {
         freeMode={true}
         watchSlidesProgress={true}
         modules={[FreeMode, Navigation, Thumbs]}
-        className="mySwiper">
+        className="mySwiper order-last sm:order-first">
         <SwiperSlide>
           <img src="/product/product-1.png" />
         </SwiperSlide>
