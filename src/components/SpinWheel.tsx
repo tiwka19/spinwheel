@@ -47,15 +47,11 @@ const SpinWheel = () => {
       { label: '?' },
       { label: '?' },
     ],
-    // image: 'bg-wheel.png',
-    itemBackgroundColors: ['#E60304', '#F5C001', '#E60304', '#F5C001', '#E60304', '#F5C001', '#E60304'],
+    overlayImage: '/overlay-test.svg',
+    itemBackgroundColors: ['#E60304', '#F5C001', '#E60304', '#F5C001', '#E60304', '#F5C001', '#E60304', '#F5C001'],
     rotationSpeedMax: 500,
     lineWidth: 2,
-    radius: 1,
-    lineColor: '#fff',
-    rotation: -22,
-    borderColor: '#4B94F7',
-    borderWidth: 26,
+
     itemLabelFontSizeMax: 80,
     itemLabelRadius: 0.8,
   };

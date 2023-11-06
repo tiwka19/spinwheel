@@ -1,9 +1,29 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg width="100%" height="100%" viewBox="0 0 500 500" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-miterlimit:10;">
-    <circle cx="250" cy="250" r="210" style="fill:none;stroke:rgb(51,51,51);stroke-width:8px;"/>
-    <path d="M250,41.7C253.3,41.7 256.6,41.8 259.8,42L259.8,12L240,12L240,42C243.4,41.8 246.7,41.7 250,41.7Z" style="fill:rgb(51,51,51);fill-rule:nonzero;"/>
-    <g>
-        <path d="M256,26.3L250,21.8L244,26.3L250,38.9L256,26.3Z" style="fill:rgb(240,70,34);fill-rule:nonzero;stroke:rgb(240,70,34);stroke-width:0.5px;stroke-linejoin:round;"/>
-    </g>
+<svg width="585" height="636" viewBox="0 0 585 636" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="292.362" cy="343.638" r="292.362" fill="#4B94F7"/>
+<circle cx="292.362" cy="343.638" r="261.26" fill="#F5C001"/>
+<mask id="mask0_207_971" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="31" y="82" width="523" height="523">
+<circle cx="292.362" cy="343.638" r="261.26" fill="#FFA9A9"/>
+</mask>
+<g mask="url(#mask0_207_971)">
+<path d="M291.466 345.797L-13.6846 467.114L-0.621574 220.162L291.453 341.447L170.441 50.0317L417.394 36.9688L296.705 340.538L586.591 220.162L599.654 467.114L296.674 346.66L417.394 650.307L170.441 637.244L291.466 345.797Z" fill="#E60304"/>
+</g>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M292.363 373.343C308.768 373.343 322.068 360.044 322.068 343.638C322.068 327.232 308.768 313.933 292.363 313.933C275.957 313.933 262.658 327.232 262.658 343.638C262.658 360.044 275.957 373.343 292.363 373.343ZM292.363 385.937C315.724 385.937 334.662 366.999 334.662 343.638C334.662 320.277 315.724 301.339 292.363 301.339C269.001 301.339 250.063 320.277 250.063 343.638C250.063 366.999 269.001 385.937 292.363 385.937Z" fill="white"/>
+<circle cx="292.362" cy="343.638" r="34.8346" fill="#4B94F7"/>
+<circle cx="292.363" cy="343.638" r="18.6614" fill="#4179C5"/>
+<rect x="210.501" width="165.522" height="82.761" rx="17.9915" fill="#2E5B98"/>
+<g filter="url(#filter0_d_207_971)">
+<path d="M291.669 145.281L246.484 19.7907L336.855 19.7907L291.669 145.281Z" fill="#4B94F7"/>
+<path d="M327.894 26.0877L291.669 126.694L255.444 26.0877L327.894 26.0877Z" stroke="#4179C5" stroke-width="12.5941"/>
+</g>
+<defs>
+<filter id="filter0_d_207_971" x="246.484" y="19.7906" width="90.3701" height="138.085" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="12.5941"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_207_971"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_207_971" result="shape"/>
+</filter>
+</defs>
 </svg>
