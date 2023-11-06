@@ -52,6 +52,7 @@ const SpinWheel = () => {
     rotationSpeedMax: 500,
     lineWidth: 2,
 
+    isInteractive: false,
     itemLabelFontSizeMax: 80,
     itemLabelRadius: 0.8,
   };
@@ -117,11 +118,14 @@ const SpinWheel = () => {
   };
 
   return (
-    <div>
-      <div id="wheel" ref={wheelContainerRef} className="my-20 sm:my-10 scale-150 sm:scale-100"></div>
-      <button className="bg-[#4B94F7] py-3 px-5 w-full rounded-full text-lg text-white" onClick={handleRandomizeClick}>
-        Play!
-      </button>
+    <div className="flex flex-col lg:flex-row items-center gap-0 sm:gap-10">
+      <div id="wheel" ref={wheelContainerRef} className="lg:-ml-72 my-20 w-full sm:my-10 scale-150 sm:scale-100"></div>
+      <div className="flex flex-col gap-10">
+        <h2 className="text-4xl font-bold text-center">Lorem ipsum dolor sit amet.</h2>
+        <button className="bg-[#4B94F7] py-3 w-full px-5  rounded-full text-lg text-white" onClick={handleRandomizeClick}>
+          Play!
+        </button>
+      </div>
 
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>

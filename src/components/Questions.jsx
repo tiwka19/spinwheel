@@ -1,7 +1,6 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState } from 'react';
 import SpinWheel from '../components/SpinWheel.tsx';
-import { Dialog, Transition } from '@headlessui/react';
-import { confetti } from 'tsparticles-confetti';
+import Product from '../components/Product';
 import './questions.css';
 import 'reactjs-popup/dist/index.css';
 const Questions = () => {
@@ -18,12 +17,27 @@ const Questions = () => {
       setTimeout(() => {
         setShowLoader(false);
         setShowResult(true);
-      }, 500);
+        window.scrollTo(0, 0);
+      }, 5000);
     }
   };
 
   return (
     <div className="mb-10">
+      <div class={`flex flex-col gap-10 lg:flex-row items-center ${showResult && 'hidden'}`}>
+        <Product />
+        <div>
+          <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-5">Lorem ipsum dolor</h1>
+          <h2 class="text-2xl md:text-2xl font-bold mb-5">Commodo viverra arcu</h2>
+          <div class="md:max-w-[585px]">
+            <p class="mb-5 text-lg">
+              Lorem ipsum dolor sit amet consectetur adipiscing elit ultricies venenatis ac feugiat quisque facilisis, per leo maecenas tempor
+              pellentesque bibendum metus cubilia enim natoque dui magnis.
+            </p>
+            <p class="mb-5 text-lg">Lorem ipsum dolor sit amet consectetur adipiscing elit ultricies venenatis ac feugiat quisque facilisis.</p>
+          </div>
+        </div>
+      </div>
       {showResult ? (
         <SpinWheel />
       ) : (
