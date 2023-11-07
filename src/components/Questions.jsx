@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import SpinWheel from '../components/SpinWheel.tsx';
 import Product from '../components/Product';
-import './questions.css';
 import 'reactjs-popup/dist/index.css';
+import Gift from './Gift.jsx';
 const Questions = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [showResult, setShowResult] = useState(false);
@@ -39,7 +39,8 @@ const Questions = () => {
         </div>
       </div>
       {showResult ? (
-        <SpinWheel />
+        // <SpinWheel />
+        <Gift />
       ) : (
         <div className="mt-20 py-10 px-5 bg-[#F5F5F5] rounded-3xl">
           {showLoader ? (
