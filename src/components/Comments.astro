@@ -77,18 +77,34 @@ const comments = [
 </style>
 
 <script>
-  // Обработчик события для выбора файла
+  import Toastify from 'toastify-js';
+  const textInput = document.querySelector('#text') as HTMLSelectElement;
+  document.querySelector('.send-button').addEventListener('click', () => {
+    textInput.value = '';
+    document.querySelector('.send-button').classList.remove('active');
+    Toastify({
+      text: 'Thank you for your comment. It has been sent for verification and will be published soon!',
+      duration: 5000,
+      gravity: 'bottom',
+      position: 'center',
+      style: {
+        background: '#4B94F7',
+      },
+      onClick: function () {},
+    }).showToast();
+  });
+
   document.querySelector('.file-input').addEventListener('change', function () {
     const fileInput = this as HTMLInputElement;
     const thumbnail = document.querySelector('#thumbnail') as HTMLImageElement;
-    const textInput = document.querySelector('#text') as HTMLElement;
+    const textInput = document.querySelector('#text') as HTMLSelectElement;
 
     if (fileInput.files && fileInput.files[0]) {
       const reader = new FileReader();
 
       reader.onload = function (e) {
         if (e.target && e.target.result) {
-          thumbnail.src = e.target.result.toString(); // Преобразование в строку
+          thumbnail.src = e.target.result.toString();
           thumbnail.style.display = 'block';
         }
       };
@@ -100,15 +116,14 @@ const comments = [
     }
   });
 
-  // Обработчик события для поля ввода текста
   document.querySelector('#text').addEventListener('input', function () {
     const textInput = this as HTMLInputElement;
-    const icon = document.querySelector('.send-button');
+    const sendButton = document.querySelector('.send-button');
 
     if (textInput.value.trim() !== '') {
-      icon.classList.add('active'); // Добавление класса 'icon' если поле не пустое
+      sendButton.classList.add('active');
     } else {
-      icon.classList.remove('active'); // Удаление класса 'icon' если поле пустое
+      sendButton.classList.remove('active');
     }
   });
 </script>
