@@ -21,7 +21,7 @@ const Questions = () => {
       setTimeout(() => {
         setShowAlert(true);
         window.scrollTo(0, 0);
-      }, 500);
+      }, 5000);
     }
   };
 
