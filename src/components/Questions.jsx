@@ -24,7 +24,7 @@ const Questions = () => {
 
   return (
     <div className="mb-10">
-      <div class={`flex flex-col gap-10 lg:flex-row items-center ${showResult && 'hidden'}`}>
+      <div class={`flex flex-col gap-10 lg:flex-row items-center ${(showLoader && 'hidden') || (showResult && 'hidden')}`}>
         <Product />
         <div>
           <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-5">Lorem ipsum dolor</h1>

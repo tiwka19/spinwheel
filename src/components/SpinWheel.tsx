@@ -47,7 +47,7 @@ const SpinWheel = () => {
       { label: '?' },
       { label: '?' },
     ],
-    overlayImage: '/overlay-test.svg',
+    image: '/overlay-test.svg',
     itemBackgroundColors: ['#E60304', '#F5C001', '#E60304', '#F5C001', '#E60304', '#F5C001', '#E60304', '#F5C001'],
     rotationSpeedMax: 500,
     lineWidth: 2,
