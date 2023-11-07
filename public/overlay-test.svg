@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<<<<<<< HEAD
 <svg width="500px" height="537px" viewBox="0 0 500 500" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;">
+=======
+<svg width="500px" height="500px" viewBox="0 0 500 500" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;">
+>>>>>>> f8c8abb0d866872d048838c1069da21d6628e377
     <path d="M468.064,250C468.064,370.352 370.352,468.064 250,468.064C129.648,468.064 31.936,370.352 31.936,250C31.936,129.648 129.648,31.936 250,31.936C370.352,31.936 468.064,129.648 468.064,250Z" style="fill:#fff;fill-opacity:0;fill-rule:nonzero;"/>
     <clipPath id="_clip1">
         <path d="M468.064,250C468.064,370.352 370.352,468.064 250,468.064C129.648,468.064 31.936,370.352 31.936,250C31.936,129.648 129.648,31.936 250,31.936C370.352,31.936 468.064,129.648 468.064,250Z" clip-rule="nonzero"/>
