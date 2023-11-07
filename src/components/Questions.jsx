@@ -27,14 +27,14 @@ const Questions = () => {
       <div class={`flex flex-col gap-10 lg:flex-row items-center ${showResult && 'hidden'}`}>
         <Product />
         <div>
-          <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-5">Lorem ipsum dolor</h1>
-          <h2 class="text-2xl md:text-2xl font-bold mb-5">Commodo viverra arcu</h2>
-          <div class="md:max-w-[585px]">
-            <p class="mb-5 text-lg">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-5">Lorem ipsum dolor</h1>
+          <h2 className="text-2xl md:text-2xl font-bold mb-5">Commodo viverra arcu</h2>
+          <div className="md:max-w-[585px]">
+            <p className="mb-5 text-lg">
               Lorem ipsum dolor sit amet consectetur adipiscing elit ultricies venenatis ac feugiat quisque facilisis, per leo maecenas tempor
               pellentesque bibendum metus cubilia enim natoque dui magnis.
             </p>
-            <p class="mb-5 text-lg">Lorem ipsum dolor sit amet consectetur adipiscing elit ultricies venenatis ac feugiat quisque facilisis.</p>
+            <p className="mb-5 text-lg">Lorem ipsum dolor sit amet consectetur adipiscing elit ultricies venenatis ac feugiat quisque facilisis.</p>
           </div>
         </div>
       </div>
