@@ -8,18 +8,17 @@ export default {
     },
     screens: {
       sm: '480px',
-      // => @media (min-width: 640px) { ... }
-
       md: '768px',
-      // => @media (min-width: 768px) { ... }
-
       lg: '1024px',
-      // => @media (min-width: 1024px) { ... }
-
       xl: '1280px',
-      // => @media (min-width: 1280px) { ... }
     },
     extend: {},
+    colors: {
+      body: '#FFF',
+      primary: '#4B94F7',
+      placeholder: '#F5F5F5',
+      text: '#434343',
+    },
   },
   plugins: [],
 };

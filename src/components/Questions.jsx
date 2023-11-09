@@ -55,12 +55,12 @@ const Questions = () => {
             <p className="text-lg mb-5 text-center">{questions[currentQuestionIndex]}</p>
             <div className="flex flex-col gap-2">
               <button
-                className="bg-[#4B94F7] max-w-[365px] mx-auto py-3 px-5 w-full rounded-full text-lg text-white"
+                className="bg-primary max-w-[365px] mx-auto py-3 px-5 w-full rounded-full text-lg text-white"
                 onClick={handleAnswerButtonClick}>
                 Yes
               </button>
               <button
-                className="bg-[#4B94F7] py-3 max-w-[365px] mx-auto px-5 w-full rounded-full text-lg text-white"
+                className="bg-primary py-3 max-w-[365px] mx-auto px-5 w-full rounded-full text-lg text-white"
                 onClick={handleAnswerButtonClick}>
                 No
               </button>
@@ -83,11 +83,11 @@ const Questions = () => {
               <p className="mb-3">Today, {currentDate}, you have a chance to win iPhone 15 Pro! </p>
               <p className="mb-3">Just choose the right gift box</p>
               <p>
-                You have <span className="text-[#4B94F7]">3</span> attempts, good luck!
+                You have <span className="text-primary">3</span> attempts, good luck!
               </p>
             </div>
 
-            <button onClick={showContent} className="bg-[#4B94F7] py-2 max-w-[200px] mx-auto px-5 w-full rounded-full text-white">
+            <button onClick={showContent} className="bg-primary py-2 max-w-[200px] mx-auto px-5 w-full rounded-full text-white">
               OK
             </button>
           </div>

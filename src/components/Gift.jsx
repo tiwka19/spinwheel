@@ -131,7 +131,7 @@ const Gift = () => {
 
                   <div className="mt-4">
                     <button
-                      className="bg-[#4B94F7] py-2 px-5 w-full rounded-full text-base text-white"
+                      className="bg-primary py-2 px-5 w-full rounded-full text-base text-white"
                       onClick={() => {
                         closeModal();
                         resetGame();
@@ -180,7 +180,7 @@ const Gift = () => {
 
                   <div className="mt-4">
                     <button
-                      className="bg-[#4B94F7] py-2 px-5 w-full rounded-full text-base text-white"
+                      className="bg-primary py-2 px-5 w-full rounded-full text-base text-white"
                       onClick={() => {
                         closeWinner();
                         resetGame();

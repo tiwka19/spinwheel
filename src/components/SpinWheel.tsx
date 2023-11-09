@@ -122,7 +122,7 @@ const SpinWheel = () => {
       <div id="wheel" ref={wheelContainerRef} className="lg:-ml-72 my-20 w-full sm:my-10 scale-150 sm:scale-100"></div>
       <div className="flex flex-col gap-10">
         <h2 className="text-4xl font-bold text-center">Lorem ipsum dolor sit amet.</h2>
-        <button className="bg-[#4B94F7] py-3 w-full px-5  rounded-full text-lg text-white" onClick={handleRandomizeClick}>
+        <button className="bg-primary py-3 w-full px-5  rounded-full text-lg text-white" onClick={handleRandomizeClick}>
           Play!
         </button>
       </div>
@@ -159,7 +159,7 @@ const SpinWheel = () => {
                   </div>
 
                   <div className="mt-4">
-                    <button className="bg-[#4B94F7] py-2 px-5 w-full rounded-full text-base text-white" onClick={closeModal}>
+                    <button className="bg-primary py-2 px-5 w-full rounded-full text-base text-white" onClick={closeModal}>
                       Next
                     </button>
                   </div>
@@ -203,7 +203,7 @@ const SpinWheel = () => {
                   </div>
 
                   <div className="mt-4">
-                    <button className="bg-[#4B94F7] py-2 px-5 w-full rounded-full text-base text-white" onClick={closeWinner}>
+                    <button className="bg-primary py-2 px-5 w-full rounded-full text-base text-white" onClick={closeWinner}>
                       Receive
                     </button>
                   </div>
