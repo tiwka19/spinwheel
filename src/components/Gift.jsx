@@ -98,11 +98,11 @@ const Gift = () => {
         ))}
       </div>
 
-      <Transition appear show={isOpen} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={closeWinner}>
+      <Transition show={isOpen} as={Fragment}>
+        <Dialog as="div" className="relative z-10" static onClose={() => null}>
           <Transition.Child
             as={Fragment}
-            enter="ease-out duration-300"
+            enter="ease-out duration-200"
             enterFrom="opacity-0"
             enterTo="opacity-100"
             leave="ease-in duration-200"
@@ -115,7 +115,7 @@ const Gift = () => {
             <div className="flex min-h-full items-center justify-center p-4 text-center">
               <Transition.Child
                 as={Fragment}
-                enter="ease-out duration-300"
+                enter="ease-out duration-200"
                 enterFrom="opacity-0 scale-95"
                 enterTo="opacity-100 scale-100"
                 leave="ease-in duration-200"
@@ -146,8 +146,8 @@ const Gift = () => {
         </Dialog>
       </Transition>
 
-      <Transition appear show={isWinnerOpen} as={Fragment} onClose={closeModal}>
-        <Dialog as="div" className="relative z-10">
+      <Transition show={isWinnerOpen} as={Fragment}>
+        <Dialog as="div" className="relative z-10" static onClose={() => null}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -171,7 +171,7 @@ const Gift = () => {
                 leaveTo="opacity-0 scale-95">
                 <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                   <Dialog.Title as="div" className="text-2xl font-bold text-center">
-                    <img src="/product/product-1.png" className="h-[226px] mx-auto object-contain mb-5" />
+                    <img src="/products/product-1.png" className="h-[226px] mx-auto object-contain mb-5" />
                     WIN!!
                   </Dialog.Title>
                   <div className="mt-2">
@@ -179,14 +179,9 @@ const Gift = () => {
                   </div>
 
                   <div className="mt-4">
-                    <button
-                      className="bg-primary py-2 px-5 w-full rounded-full text-base text-white"
-                      onClick={() => {
-                        closeWinner();
-                        resetGame();
-                      }}>
+                    <a href="https://undetectable.io" className="bg-primary block text-center py-2 px-5 w-full rounded-full text-lg text-white">
                       Receive
-                    </button>
+                    </a>
                   </div>
                 </Dialog.Panel>
               </Transition.Child>

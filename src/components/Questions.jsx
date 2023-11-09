@@ -3,6 +3,11 @@ import SpinWheel from '../components/SpinWheel.tsx';
 import Product from '../components/Product';
 import 'reactjs-popup/dist/index.css';
 import Gift from './Gift.jsx';
+
+import { data } from '../utils/index.ts';
+
+console.log(data[0].hero[0].title);
+
 const Questions = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [showResult, setShowResult] = useState(false);
@@ -34,14 +39,10 @@ const Questions = () => {
       <div className={`flex mb-10 flex-col gap-10 lg:flex-row items-center ${(showResult && 'hidden') || (showLoader && 'hidden')}`}>
         <Product />
         <div>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-5">Lorem ipsum dolor</h1>
-          <h2 className="text-2xl md:text-2xl font-bold mb-5">Commodo viverra arcu</h2>
-          <div className="md:max-w-[585px]">
-            <p className="mb-5 text-lg">
-              Lorem ipsum dolor sit amet consectetur adipiscing elit ultricies venenatis ac feugiat quisque facilisis, per leo maecenas tempor
-              pellentesque bibendum metus cubilia enim natoque dui magnis.
-            </p>
-            <p className="mb-5 text-lg">Lorem ipsum dolor sit amet consectetur adipiscing elit ultricies venenatis ac feugiat quisque facilisis.</p>
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-5">{data[0].hero[0].title}</h1>
+          <h2 className="text-2xl md:text-2xl font-bold mb-5">{data[0].hero[0].subtitle}</h2>
+          <div className="md:max-w-[585px] mb-5">
+            <p className="text-lg">{data[0].hero[0].description}</p>
           </div>
         </div>
       </div>
@@ -54,14 +55,10 @@ const Questions = () => {
             </h2>
             <p className="text-lg mb-5 text-center">{questions[currentQuestionIndex]}</p>
             <div className="flex flex-col gap-2">
-              <button
-                className="bg-primary max-w-[365px] mx-auto py-3 px-5 w-full rounded-full text-lg text-white"
-                onClick={handleAnswerButtonClick}>
+              <button className="bg-primary max-w-[365px] mx-auto py-3 px-5 w-full rounded-full text-lg text-white" onClick={handleAnswerButtonClick}>
                 Yes
               </button>
-              <button
-                className="bg-primary py-3 max-w-[365px] mx-auto px-5 w-full rounded-full text-lg text-white"
-                onClick={handleAnswerButtonClick}>
+              <button className="bg-primary py-3 max-w-[365px] mx-auto px-5 w-full rounded-full text-lg text-white" onClick={handleAnswerButtonClick}>
                 No
               </button>
             </div>

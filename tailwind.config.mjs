@@ -14,7 +14,8 @@ export default {
     },
     extend: {},
     colors: {
-      body: '#FFF',
+      white: '#FFF',
+      black: "#000",
       primary: '#4B94F7',
       placeholder: '#F5F5F5',
       text: '#434343',

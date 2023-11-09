@@ -2,30 +2,7 @@
 import { Image } from 'astro:assets';
 import { Icon } from 'astro-icon';
 
-const comments = [
-  {
-    avatar: 'http://placehold.it/45x45',
-    name: 'Justin',
-    date: '1 day ago',
-    like_count: '12',
-    text: 'Lorem ipsum dolor sit amet consectetur adipiscing elit ultricies venenatis ac feugiat quisque facilisis?',
-  },
-  {
-    avatar: 'http://placehold.it/45x45',
-    name: 'Justin',
-    date: '1 day ago',
-    like_count: '12',
-    text: 'Lorem ipsum dolor sit amet consectetur adipiscing elit ultricies venenatis ac feugiat quisque facilisis?',
-    image: 'https://media.karousell.com/media/photos/products/2022/4/23/iphone_13_pro_max_graphite_128_1650726760_539fb1e3_progressive.jpg',
-  },
-  {
-    avatar: 'http://placehold.it/45x45',
-    name: 'Justin',
-    date: '1 day ago',
-    like_count: '12',
-    text: 'Lorem ipsum dolor sit amet consectetur adipiscing elit ultricies venenatis ac feugiat quisque facilisis?',
-  },
-];
+import { data } from '../utils';
 ---
 
 <div class="py-10">
@@ -47,23 +24,20 @@ const comments = [
   </div>
 
   {
-    comments.map((comment) => (
-      <div class="flex items-start gap-5 mb-5">
-        <Image src={comment.avatar} width={45} height={45} class="rounded-full w-[45px] h-[45px] object-cover" alt="avatar" />
-        <div class="bg-[#F5F5F5] w-full rounded-lg py-4 px-3 flex flex-col">
-          <div class="flex justify-between items-center mb-3">
-            <div class="flex gap-3 text-sm">
-              <span class="text-[#485584] font-semibold">{comment.name}</span>
-              <span class="text-[#9E9E9E]">{comment.date}</span>
-            </div>
-            <div class="flex gap-1 text-sm">
-              <Icon name="mdi:heart-outline" class="w-5 h-5 text-[#AFAFAF]" />
-              <span class="text-[#9E9E9E]">{comment.like_count}</span>
-            </div>
+    data[0].comments.map((comment) => (
+      <div class="bg-[#F5F5F5] w-full rounded-lg py-4 px-3 flex flex-col">
+        <div class="flex justify-between items-center mb-3">
+          <div class="flex gap-3 text-sm">
+            <span class="text-[#485584] font-semibold">{comment.name}</span>
+            <span class="text-[#9E9E9E]">{comment.date}</span>
           </div>
-          <p class="text-[#5F5F5F]">{comment.text}</p>
-          {comment.image && <Image src={comment.image} width={300} height={215} class="mt-5 rounded-lg" alt="image" />}
+          <div class="flex gap-1 text-sm">
+            <Icon name="mdi:heart-outline" class="w-5 h-5 text-[#AFAFAF]" />
+            <span class="text-[#9E9E9E]">{comment.like_count}</span>
+          </div>
         </div>
+        <p class="text-[#5F5F5F]">{comment.text}</p>
+        {comment.image && <Image src={comment.image} width={300} height={215} class="mt-5 rounded-lg" alt="image" />}
       </div>
     ))
   }

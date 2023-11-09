@@ -13,6 +13,10 @@ import '../styles.css';
 // import required modules
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
 
+import { data } from '../utils';
+
+console.log(data[0].products);
+
 const Product = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
@@ -28,18 +32,11 @@ const Product = () => {
         thumbs={{ swiper: thumbsSwiper }}
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper2 mb-10 sm:mb-0">
-        <SwiperSlide>
-          <img src="/product/product-1.png" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="/product/product-2.png" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="/product/product-3.png" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="/product/product-4.png" />
-        </SwiperSlide>
+        {data[0].products.map((product, index) => (
+          <SwiperSlide key={index}>
+            <img src={product.url} alt={product.alt} />
+          </SwiperSlide>
+        ))}
       </Swiper>
       <Swiper
         onSwiper={setThumbsSwiper}
@@ -49,18 +46,11 @@ const Product = () => {
         watchSlidesProgress={true}
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper order-last sm:order-first">
-        <SwiperSlide>
-          <img src="/product/product-1.png" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="/product/product-2.png" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="/product/product-3.png" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="/product/product-4.png" />
-        </SwiperSlide>
+        {data[0].products.map((product, index) => (
+          <SwiperSlide key={index}>
+            <img src={product.url} alt={product.alt} />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );
