@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
-import SpinWheel from './SpinWheel.tsx';
 import Product from './Product.jsx';
 import 'reactjs-popup/dist/index.css';
 import Gift from './Gift.jsx';
-import { data } from '../../data.ts';
 
-const Data = ({ contentData, productImages }) => {
+const Data = ({ contentData, images }) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [showLoader, setShowLoader] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
   const questions = ['Вопрос 1: ...', 'Вопрос 2: ...', 'Вопрос 3: ...'];
+
+  const winImage = images.filter((item) => item.directus_files_id.filename_download.includes('gift'));
+  const winImageModal = images.filter((item) => item.directus_files_id.filename_download.includes('win-product'));
 
   const options = { day: 'numeric', month: 'long' };
   const currentDate = new Date().toLocaleDateString('en-US', options);
@@ -23,7 +24,7 @@ const Data = ({ contentData, productImages }) => {
       setTimeout(() => {
         setShowAlert(true);
         window.scrollTo(0, 0);
-      }, 5000);
+      }, 1000);
     }
   };
 
@@ -34,7 +35,7 @@ const Data = ({ contentData, productImages }) => {
   return (
     <div className="mb-10">
       <div className={`flex mb-10 flex-col gap-10 lg:flex-row items-center ${(showResult && 'hidden') || (showLoader && 'hidden')}`}>
-        <Product productImages={productImages} />
+        <Product productImages={images} />
         <div>
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-5">{contentData.hero[0].title}</h1>
           <h2 className="text-2xl md:text-2xl font-bold mb-5">{contentData.hero[0].subtitle}</h2>
@@ -89,7 +90,7 @@ const Data = ({ contentData, productImages }) => {
           </div>
         )}
       </div>
-      {showResult && <Gift />}
+      {showResult && <Gift contentData={contentData} winImageModal={winImageModal} winImage={winImage} />}
     </div>
   );
 };

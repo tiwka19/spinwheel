@@ -1,7 +1,10 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, Fragment, useEffect } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { confetti } from 'tsparticles-confetti';
-const Gift = () => {
+import { getAssetURL } from '../utils';
+
+const Gift = ({ contentData, winImage, winImageModal }) => {
+  console.log(contentData.modals);
   const initialGifts = Array(9).fill('/gift.png');
   const [gifts, setGifts] = useState(initialGifts);
   const [attempts, setAttempts] = useState(0);
@@ -16,10 +19,6 @@ const Gift = () => {
 
   const openModal = () => {
     setIsOpen(true);
-  };
-
-  const closeWinner = () => {
-    setIsWinnerOpen(false);
   };
 
   const openWinnerModal = () => {
@@ -59,6 +58,11 @@ const Gift = () => {
     }, 250);
   };
 
+  useEffect(() => {
+    // Update the document title using the browser API
+    console.log(winImage);
+  });
+
   const updateGifts = (index, imageUrl) => {
     const newGifts = [...gifts];
     newGifts[index] = imageUrl;
@@ -70,7 +74,7 @@ const Gift = () => {
     setAttempts(attempts + 1);
     setTimeout(() => openModal(), 1000);
     if (restartCount > 1) {
-      updateGifts(index, '/iphone-gift.png');
+      updateGifts(index, getAssetURL(winImage[0].directus_files_id.id));
       setTimeout(() => openWinnerModal(), 1000);
     }
   };
@@ -86,14 +90,8 @@ const Gift = () => {
     <div>
       <div className="grid grid-cols-3 gap-y-20 mx-auto max-w-xl">
         {gifts.map((gift, index) => (
-          <div className={`${attempts > 0 && 'pointer-events-none'}`}>
-            <img
-              key={index}
-              src={gift}
-              className="w-[120px] h-[120px] mx-auto cursor-pointer"
-              alt={`Подарок ${index + 1}`}
-              onClick={() => handleClick(index)}
-            />
+          <div className={`${attempts > 0 && 'pointer-events-none'}`} key={index}>
+            <img src={gift} className="w-[120px] h-[120px] mx-auto cursor-pointer" alt={`Подарок ${index + 1}`} onClick={() => handleClick(index)} />
           </div>
         ))}
       </div>
@@ -123,10 +121,10 @@ const Gift = () => {
                 leaveTo="opacity-0 scale-95">
                 <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                   <Dialog.Title as="h3" className="text-lg font-semibold text-center leading-6 text-gray-900">
-                    Ohh...
+                    {contentData.modals[0].lose.title}
                   </Dialog.Title>
                   <div className="mt-2">
-                    <p className="text-sm text-center text-gray-500">Lorem ipsum dolor sit amet consectetur adipiscing elit ultricies venenatis.</p>
+                    <p className="text-sm text-center text-gray-500">{contentData.modals[0].lose.description}</p>
                   </div>
 
                   <div className="mt-4">
@@ -171,15 +169,17 @@ const Gift = () => {
                 leaveTo="opacity-0 scale-95">
                 <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                   <Dialog.Title as="div" className="text-2xl font-bold text-center">
-                    <img src="/products/product-1.png" className="h-[226px] mx-auto object-contain mb-5" />
-                    WIN!!
+                    <img src={getAssetURL(winImageModal[0].directus_files_id.id)} className="h-[226px] mx-auto object-contain mb-5" />
+                    {contentData.modals[0].win.title}
                   </Dialog.Title>
                   <div className="mt-2">
-                    <p className="text-sm text-center text-gray-500">Lorem ipsum dolor sit amet consectetur adipiscing elit ultricies venenatis.</p>
+                    <p className="text-sm text-center text-gray-500">{contentData.modals[0].lose.description}</p>
                   </div>
 
                   <div className="mt-4">
-                    <a href="https://undetectable.io" className="bg-primary block text-center py-2 px-5 w-full rounded-full text-lg text-white">
+                    <a
+                      href={contentData.modals[0].win.externalLink}
+                      className="bg-primary block text-center py-2 px-5 w-full rounded-full text-lg text-white">
                       Receive
                     </a>
                   </div>

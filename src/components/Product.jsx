@@ -15,7 +15,7 @@ import '../styles.css';
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
 
 const Product = ({ productImages }) => {
-  console.log(productImages);
+  const products = productImages.filter((item) => item.directus_files_id.filename_download.includes('product'));
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   return (
     <div className="sm:flex flex-col items-start sm:flex-row sm:items-center w-full lg:w-[500px] order-last lg:order-first gap-5">
@@ -29,7 +29,7 @@ const Product = ({ productImages }) => {
         thumbs={{ swiper: thumbsSwiper }}
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper2 mb-10 sm:mb-0">
-        {productImages.map((product, index) => (
+        {products.map((product, index) => (
           <SwiperSlide key={index}>
             <img src={getAssetURL(product.directus_files_id.id)} alt="image" />
           </SwiperSlide>
@@ -43,7 +43,7 @@ const Product = ({ productImages }) => {
         watchSlidesProgress={true}
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper order-last sm:order-first">
-        {productImages.map((product, index) => (
+        {products.map((product, index) => (
           <SwiperSlide key={index}>
             <img src={getAssetURL(product.directus_files_id.id)} alt="product" />
           </SwiperSlide>

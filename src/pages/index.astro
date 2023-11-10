@@ -23,12 +23,12 @@ const response = await directus.query(
   `,
 );
 
-const productImages = response.sweepstakes[0].images.filter((item) => item.directus_files_id.filename_download.includes('product'));
+const productImages = response.sweepstakes[0].images;
 ---
 
 <Layout title="Welcome to Astro.">
   <main class="container overflow-clip">
-    <Data contentData={response.sweepstakes[0].data} productImages={productImages} client:load />
+    <Data contentData={response.sweepstakes[0].data} images={productImages} client:load />
     <Comments />
   </main>
 </Layout>
