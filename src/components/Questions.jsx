@@ -4,7 +4,7 @@ import Product from '../components/Product';
 import 'reactjs-popup/dist/index.css';
 import Gift from './Gift.jsx';
 
-import { data } from '../utils/index.ts';
+import { data } from '../../data.ts';
 
 console.log(data[0].hero[0].title);
 

@@ -13,7 +13,7 @@ import '../styles.css';
 // import required modules
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
 
-import { data } from '../utils';
+import { data } from '../../data';
 
 const Product = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);

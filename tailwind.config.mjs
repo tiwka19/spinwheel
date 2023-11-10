@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-import { data } from './src/utils';
+import { data } from './data';
 export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {

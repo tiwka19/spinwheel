@@ -2,7 +2,7 @@ import { useState, useRef, useEffect, Fragment } from 'react';
 import { Wheel } from 'spin-wheel/dist/spin-wheel-esm';
 import { Dialog, Transition } from '@headlessui/react';
 import { confetti } from 'tsparticles-confetti';
-import { data } from '../utils';
+import { data } from '../../data';
 interface SpinWheel {
   spinToItem: (
     itemIndex: number,
