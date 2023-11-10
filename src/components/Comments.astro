@@ -1,13 +1,33 @@
 ---
-import { Image } from 'astro:assets';
+import { Image } from 'astro-preload/components';
 import { Icon } from 'astro-icon';
+import { getDirectusClient } from '../utils';
 
-import { data } from '../../data';
+const projectName = import.meta.env.PROJECT_NAME;
+const directus = await getDirectusClient();
+const response = await directus.query(
+  `
+  query {
+    sweepstakes (filter: {name: {_eq: "${projectName}"}}) {
+      data 
+      images {
+        id
+        directus_files_id {
+          id
+          filename_download
+        }
+      }
+    }
+  }
+  `,
+);
+
+const data = response.sweepstakes[0].data;
 ---
 
 <div class="py-10">
   <h2 class="text-xl font-bold mb-5">Comment:</h2>
-
+  <Image url="https://examplecat.com/cat.png" />
   <div class="text-input overflow-hidden flex items-center gap-5 w-full border-2 p-3 rounded-full relative mb-10">
     <input type="text" class="w-full pl-2 text-lg outline-none" id="text" placeholder="Comment..." />
     <div class="flex items-center gap-2">
@@ -23,7 +43,7 @@ import { data } from '../../data';
     <input type="file" id="file" class="hidden file-input" />
   </div>
 
-  {
+  <!-- {
     data[0].comments.map((comment) => (
       <div class="bg-[#F5F5F5] w-full rounded-lg py-4 px-3 flex flex-col">
         <div class="flex justify-between items-center mb-3">
@@ -40,7 +60,7 @@ import { data } from '../../data';
         {comment.image && <Image src={comment.image} width={300} height={215} class="mt-5 rounded-lg" alt="image" />}
       </div>
     ))
-  }
+  } -->
 </div>
 
 <style>

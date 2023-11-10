@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
-import SpinWheel from '../components/SpinWheel.tsx';
-import Product from '../components/Product';
+import SpinWheel from './SpinWheel.tsx';
+import Product from './Product.jsx';
 import 'reactjs-popup/dist/index.css';
 import Gift from './Gift.jsx';
-
 import { data } from '../../data.ts';
 
-console.log(data[0].hero[0].title);
-
-const Questions = () => {
+const Data = ({ contentData, productImages }) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [showLoader, setShowLoader] = useState(false);
@@ -37,12 +34,12 @@ const Questions = () => {
   return (
     <div className="mb-10">
       <div className={`flex mb-10 flex-col gap-10 lg:flex-row items-center ${(showResult && 'hidden') || (showLoader && 'hidden')}`}>
-        <Product />
+        <Product productImages={productImages} />
         <div>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-5">{data[0].hero[0].title}</h1>
-          <h2 className="text-2xl md:text-2xl font-bold mb-5">{data[0].hero[0].subtitle}</h2>
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-5">{contentData.hero[0].title}</h1>
+          <h2 className="text-2xl md:text-2xl font-bold mb-5">{contentData.hero[0].subtitle}</h2>
           <div className="md:max-w-[585px] mb-5">
-            <p className="text-lg">{data[0].hero[0].description}</p>
+            <p className="text-lg">{contentData.hero[0].description}</p>
           </div>
         </div>
       </div>
@@ -65,7 +62,7 @@ const Questions = () => {
           </div>
         ) : !showAlert ? (
           <div className="mx-auto">
-            <p className="text-2xl text-center font-bold mb-3">{data[0].questionsAfter}</p>
+            <p className="text-2xl text-center font-bold mb-3">{contentData.questionsAfter}</p>
             <div
               className="block mx-auto h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em]"
               role="status"></div>
@@ -78,7 +75,7 @@ const Questions = () => {
             <h3 className="text-xl font-semibold mb-5">Congratulations, your answers have been verified correctly!</h3>
             <div className="text-lg mb-5">
               <p className="mb-3">
-                Today, {currentDate}, you have a chance to win {data[0].winProduct}
+                Today, {currentDate}, you have a chance to win {contentData.winProduct}
               </p>
               <p className="mb-3">Just choose the right gift box</p>
               <p>
@@ -97,4 +94,4 @@ const Questions = () => {
   );
 };
 
-export default Questions;
+export default Data;

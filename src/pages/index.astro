@@ -1,14 +1,35 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Product from '../components/Product';
-import Questions from '../components/Questions';
+import Data from '../components/Data';
 import Comments from '../components/Comments.astro';
-import Gift from '../components/Gift';
+import { getDirectusClient, getAssetURL } from '../utils';
+
+const projectName = import.meta.env.PROJECT_NAME;
+const directus = await getDirectusClient();
+const response = await directus.query(
+  `
+  query {
+    sweepstakes (filter: {name: {_eq: "${projectName}"}}) {
+      data
+      images {
+        id
+        directus_files_id {
+          filename_download
+          id
+        }
+      }
+    }
+  }
+  `,
+);
+
+const productImages = response.sweepstakes[0].images.filter((item) => item.directus_files_id.filename_download.includes('product'));
 ---
 
 <Layout title="Welcome to Astro.">
   <main class="container overflow-clip">
-    <Questions client:load />
+    <Data contentData={response.sweepstakes[0].data} productImages={productImages} client:load />
     <Comments />
   </main>
 </Layout>
+ ../components/Data
