@@ -65,7 +65,7 @@ const Questions = () => {
           </div>
         ) : !showAlert ? (
           <div className="mx-auto">
-            <p className="text-2xl text-center font-bold mb-3">Текст после завершения вопросов</p>
+            <p className="text-2xl text-center font-bold mb-3">{data[0].questionsAfter}</p>
             <div
               className="block mx-auto h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em]"
               role="status"></div>
@@ -77,7 +77,9 @@ const Questions = () => {
             </div>
             <h3 className="text-xl font-semibold mb-5">Congratulations, your answers have been verified correctly!</h3>
             <div className="text-lg mb-5">
-              <p className="mb-3">Today, {currentDate}, you have a chance to win iPhone 15 Pro! </p>
+              <p className="mb-3">
+                Today, {currentDate}, you have a chance to win {data[0].winProduct}
+              </p>
               <p className="mb-3">Just choose the right gift box</p>
               <p>
                 You have <span className="text-primary">3</span> attempts, good luck!

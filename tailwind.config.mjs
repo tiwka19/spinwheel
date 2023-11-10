@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+import { data } from './src/utils';
 export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
@@ -14,11 +15,12 @@ export default {
     },
     extend: {},
     colors: {
-      white: '#FFF',
-      black: "#000",
-      primary: '#4B94F7',
-      placeholder: '#F5F5F5',
-      text: '#434343',
+      white: data[0].themes.white,
+      body: data[0].themes.body,
+      black: data[0].themes.black,
+      primary: data[0].themes.primary,
+      placeholder: data[0].themes.placeholder,
+      text: data[0].themes.text,
     },
   },
   plugins: [],

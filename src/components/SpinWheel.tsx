@@ -2,6 +2,7 @@ import { useState, useRef, useEffect, Fragment } from 'react';
 import { Wheel } from 'spin-wheel/dist/spin-wheel-esm';
 import { Dialog, Transition } from '@headlessui/react';
 import { confetti } from 'tsparticles-confetti';
+import { data } from '../utils';
 interface SpinWheel {
   spinToItem: (
     itemIndex: number,
@@ -128,7 +129,7 @@ const SpinWheel = () => {
       </div>
 
       <Transition appear show={isOpen} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={closeModal}>
+        <Dialog as="div" className="relative z-10" static onClose={() => null}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -152,10 +153,10 @@ const SpinWheel = () => {
                 leaveTo="opacity-0 scale-95">
                 <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                   <Dialog.Title as="h3" className="text-lg font-semibold text-center leading-6 text-gray-900">
-                    Ohh...
+                    {data[0].modals[0].lose.title}
                   </Dialog.Title>
                   <div className="mt-2">
-                    <p className="text-sm text-center text-gray-500">Lorem ipsum dolor sit amet consectetur adipiscing elit ultricies venenatis.</p>
+                    <p className="text-sm text-center text-gray-500">{data[0].modals[0].lose.description}</p>
                   </div>
 
                   <div className="mt-4">
@@ -171,7 +172,7 @@ const SpinWheel = () => {
       </Transition>
 
       <Transition appear show={isWinnerOpen} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={closeModal}>
+        <Dialog as="div" className="relative z-10" static onClose={() => null}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -195,17 +196,17 @@ const SpinWheel = () => {
                 leaveTo="opacity-0 scale-95">
                 <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                   <Dialog.Title as="div" className="text-2xl font-bold text-center">
-                    <img src="/product/product-1.png" className="h-[226px] mx-auto object-contain mb-5" />
-                    WIN!!
+                    <img src={data[0].modals[0].win.image} className="h-[226px] mx-auto object-contain mb-5" />
+                    {data[0].modals[0].win.title}
                   </Dialog.Title>
                   <div className="mt-2">
-                    <p className="text-sm text-center text-gray-500">Lorem ipsum dolor sit amet consectetur adipiscing elit ultricies venenatis.</p>
+                    <p className="text-sm text-center text-gray-500">{data[0].modals[0].win.description}</p>
                   </div>
 
                   <div className="mt-4">
-                    <button className="bg-primary py-2 px-5 w-full rounded-full text-base text-white" onClick={closeWinner}>
+                    <a href={data[0].modals[0].win.externalLink} className="bg-primary block py-2 px-5 w-full rounded-full text-base text-white">
                       Receive
-                    </button>
+                    </a>
                   </div>
                 </Dialog.Panel>
               </Transition.Child>

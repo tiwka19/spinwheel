@@ -1,5 +1,22 @@
 export const data = [
   {
+    themes: {
+      white: '#FFF',
+      black: '#000',
+      body: '#FFF',
+      primary: '#4B94F7',
+      placeholder: '#F5F5F5',
+      text: '#434343',
+    },
+
+    meta: {
+      title: 'Title',
+      description: 'Description',
+    },
+
+    header: {
+      src: '/logo.svg',
+    },
     hero: [
       {
         title: 'Lorem ipsum dolor',
@@ -11,22 +28,36 @@ export const data = [
     products: [
       {
         url: '/products/product-1.png',
-        alt: 'image',
       },
       {
         url: '/products/product-2.png',
-        alt: 'image',
       },
       {
         url: '/products/product-3.png',
-        alt: 'image',
       },
       {
         url: '/products/product-4.png',
-        alt: 'image',
       },
     ],
+
+    modals: [
+      {
+        lose: {
+          title: 'Ohh',
+          description: 'Lorem ipsum dolor sit amet consectetur adipiscing elit ultricies venenatis',
+        },
+        win: {
+          title: 'WIN!!',
+          description: 'Lorem ipsum dolor sit amet consectetur adipiscing elit ultricies venenatis.',
+          image: '/products/product-1.png',
+          externalLink: 'https://undetectable.io',
+        },
+      },
+    ],
+
     questions: ['Вопрос 1: ...', 'Вопрос 2: ...', 'Вопрос 3: ...'],
+    questionsAfter: 'Текст после вопросов',
+    winProduct: 'Iphone 15',
 
     comments: [
       {

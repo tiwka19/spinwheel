@@ -1,15 +1,16 @@
 ---
-import { Image } from 'astro:assets'
-import { Icon } from 'astro-icon'
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon';
+import { data } from '../utils';
 ---
 
-<header class='sticky top-0 z-50 left-8 bg-primary py-3'>
-	<div class='container flex items-center justify-between gap-5'>
-		<Image src={import('../assets/logo.svg')} alt='logo' />
-		<div class='flex items-center text-white gap-3'>
-			<Icon name='mdi:heart-outline' class='w-7 h-7' />
-			<Icon name='mdi:user-outline' class='w-7 h-7' />
-			<Icon name='mdi:cart-outline' class='w-7 h-7' />
-		</div>
-	</div>
+<header class="sticky top-0 z-50 left-8 bg-primary py-3">
+  <div class="container flex items-center justify-between gap-5">
+    <Image src={data[0].header.src} width={150} height={150} alt="logo" />
+    <div class="flex items-center text-white gap-3">
+      <Icon name="mdi:heart-outline" class="w-7 h-7" />
+      <Icon name="mdi:user-outline" class="w-7 h-7" />
+      <Icon name="mdi:cart-outline" class="w-7 h-7" />
+    </div>
+  </div>
 </header>

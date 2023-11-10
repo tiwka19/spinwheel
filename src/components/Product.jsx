@@ -15,8 +15,6 @@ import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
 
 import { data } from '../utils';
 
-console.log(data[0].products);
-
 const Product = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
@@ -34,7 +32,7 @@ const Product = () => {
         className="mySwiper2 mb-10 sm:mb-0">
         {data[0].products.map((product, index) => (
           <SwiperSlide key={index}>
-            <img src={product.url} alt={product.alt} />
+            <img src={product.url} alt="product" />
           </SwiperSlide>
         ))}
       </Swiper>
@@ -48,7 +46,7 @@ const Product = () => {
         className="mySwiper order-last sm:order-first">
         {data[0].products.map((product, index) => (
           <SwiperSlide key={index}>
-            <img src={product.url} alt={product.alt} />
+            <img src={product.url} alt="image" />
           </SwiperSlide>
         ))}
       </Swiper>
