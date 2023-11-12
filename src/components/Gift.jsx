@@ -8,17 +8,14 @@ const Gift = ({ contentData, winImage, winImageModal }) => {
   const initialGifts = Array(9).fill('/gift.png');
   const [gifts, setGifts] = useState(initialGifts);
   const [attempts, setAttempts] = useState(0);
-  const [isGameWon, setIsGameWon] = useState(false);
   const [restartCount, setRestartCount] = useState(0);
+  const [selectedImages, setSelectedImages] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [isWinnerOpen, setIsWinnerOpen] = useState(false);
+
   const closeModal = () => {
     setIsOpen(false);
   };
-
-  console.log(winImage);
-
-  console.log(winImageModal);
 
   const openModal = () => {
     setIsOpen(true);
@@ -71,6 +68,12 @@ const Gift = ({ contentData, winImage, winImageModal }) => {
     updateGifts(index, '/empty-gift.png');
     setAttempts(attempts + 1);
     setTimeout(() => openModal(), 1000);
+
+    if (!selectedImages.includes(index)) {
+      // Если нет, то добавляем его в список выбранных
+      setSelectedImages([...selectedImages, index]);
+    }
+
     if (restartCount > 1) {
       updateGifts(index, getAssetURL(winImage[0].directus_files_id.id));
       setTimeout(() => openWinnerModal(), 1000);
@@ -78,18 +81,23 @@ const Gift = ({ contentData, winImage, winImageModal }) => {
   };
 
   const resetGame = () => {
-    setGifts(initialGifts);
-    setAttempts(0);
-    setIsGameWon(false);
     setRestartCount(restartCount + 1);
+    setAttempts(0);
   };
 
   return (
     <div>
       <div className="grid grid-cols-3 gap-y-20 mx-auto max-w-xl">
         {gifts.map((gift, index) => (
-          <div className={`${attempts > 0 && 'pointer-events-none'}`} key={index}>
-            <img src={gift} className="w-[120px] h-[120px] mx-auto cursor-pointer" alt={`Подарок ${index + 1}`} onClick={() => handleClick(index)} />
+          <div className={selectedImages.includes(index) && 'pointer-events-none'}>
+            <div className={`${attempts > 0 && 'pointer-events-none'}`} key={index}>
+              <img
+                src={gift}
+                className="w-[120px] h-[120px] mx-auto cursor-pointer"
+                alt={`Подарок ${index + 1}`}
+                onClick={() => handleClick(index)}
+              />
+            </div>
           </div>
         ))}
       </div>

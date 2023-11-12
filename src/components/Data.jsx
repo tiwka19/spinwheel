@@ -24,7 +24,7 @@ const Data = ({ contentData, images }) => {
       setTimeout(() => {
         setShowAlert(true);
         window.scrollTo(0, 0);
-      }, 1000);
+      }, 3000);
     }
   };
 

@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Data from '../components/Data';
 import Comments from '../components/Comments.astro';
 import { getDirectusClient, getAssetURL } from '../utils';
+import TestGift from '../components/TestGift';
 
 const projectName = import.meta.env.PROJECT_NAME;
 const directus = await getDirectusClient();
@@ -32,4 +33,3 @@ const productImages = response.sweepstakes[0].images;
     <Comments />
   </main>
 </Layout>
- ../components/Data
