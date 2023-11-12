@@ -1,7 +1,7 @@
 ---
 import { Icon } from 'astro-icon';
-import { getDirectusClient } from '../utils';
-
+import { getAssetURL, getDirectusClient } from '../utils';
+import { Image } from 'astro:assets';
 const projectName = import.meta.env.PROJECT_NAME;
 const directus = await getDirectusClient();
 const response = await directus.query(
@@ -22,6 +22,11 @@ const response = await directus.query(
 );
 
 const data = response.sweepstakes[0].data;
+
+console.log(data);
+
+const commentImages = response.sweepstakes[0].images;
+const test = commentImages.filter((item) => item.directus_files_id.filename_download.includes('comment'));
 ---
 
 <div class="py-10">
@@ -42,11 +47,11 @@ const data = response.sweepstakes[0].data;
   </div>
 
   {
-    data.comments.map((comment) => (
+    data.comments.map((comment, index) => (
       <div class="bg-[#F5F5F5] w-full rounded-lg py-4 px-3 flex mb-2 flex-col">
         <div class="flex justify-between items-center mb-3">
-          <div class="flex gap-3 text-sm">
-            <span class="text-[#485584] font-semibold">{comment.name}</span>
+          <div class="flex gap-3 text-base">
+            <span class="text-[#485584]  font-semibold">{comment.name}</span>
             <span class="text-[#9E9E9E]">{comment.date}</span>
           </div>
           <div class="flex gap-1 text-sm">
@@ -54,7 +59,8 @@ const data = response.sweepstakes[0].data;
             <span class="text-[#9E9E9E]">{comment.like_count}</span>
           </div>
         </div>
-        <p class="text-[#5F5F5F]">{comment.text}</p>
+        <p class="text-[#5F5F5F] mb-2">{comment.text}</p>
+        {comment.image && <Image src={comment.image} alt="image" width={300} height={100} />}
       </div>
     ))
   }

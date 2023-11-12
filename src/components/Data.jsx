@@ -11,7 +11,7 @@ const Data = ({ contentData, images }) => {
   const questions = ['Вопрос 1: ...', 'Вопрос 2: ...', 'Вопрос 3: ...'];
 
   const winImage = images.filter((item) => item.directus_files_id.filename_download.includes('gift'));
-  const winImageModal = images.filter((item) => item.directus_files_id.filename_download.includes('win-product'));
+  const winImageModal = images.filter((item) => item.directus_files_id.filename_download.includes('win-modal-product'));
 
   const options = { day: 'numeric', month: 'long' };
   const currentDate = new Date().toLocaleDateString('en-US', options);

@@ -10,12 +10,15 @@ const Gift = ({ contentData, winImage, winImageModal }) => {
   const [attempts, setAttempts] = useState(0);
   const [isGameWon, setIsGameWon] = useState(false);
   const [restartCount, setRestartCount] = useState(0);
-
   const [isOpen, setIsOpen] = useState(false);
   const [isWinnerOpen, setIsWinnerOpen] = useState(false);
   const closeModal = () => {
     setIsOpen(false);
   };
+
+  console.log(winImage);
+
+  console.log(winImageModal);
 
   const openModal = () => {
     setIsOpen(true);
@@ -57,11 +60,6 @@ const Gift = ({ contentData, winImage, winImageModal }) => {
       );
     }, 250);
   };
-
-  useEffect(() => {
-    // Update the document title using the browser API
-    console.log(winImage);
-  });
 
   const updateGifts = (index, imageUrl) => {
     const newGifts = [...gifts];
